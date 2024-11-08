@@ -1,8 +1,40 @@
 on: push
 jobs:
-  first-job:
+  init:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - run: node --version
       - run: npm --version
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init]
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init,unit-test]
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init,unit-test,test]
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init,unit-test,test,release]
