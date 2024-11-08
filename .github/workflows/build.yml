@@ -31,6 +31,15 @@ jobs:
       - run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test,test]
+
+  with-test:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+
   deployment:
     runs-on: ubuntu-latest
     steps:
@@ -38,7 +47,7 @@ jobs:
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
-    needs: [init,unit-test,test,release]
+    needs: [init,unit-test,test,release,with-test]
 
 # name: "My workflow"
 # on: push
