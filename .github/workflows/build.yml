@@ -19,8 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: node --version
-      - run: npm --version
+      - name: on windows
+        run: node --version
+      - name: on moc os
+        run: npm --version
+      - name: on linux
+        run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test]
   release:
