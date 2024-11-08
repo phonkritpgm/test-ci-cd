@@ -44,14 +44,14 @@ jobs:
     if: ${{ always() }}
     needs: [init,unit-test,test,release]
 
-jobs:
-  runs-on: ubuntu-latest
-  if: ${{ always() }}
-  needs: [test]
-  steps:
-    - uses: actions/checkout@v1
-    - run: node --version
-    - run: npm --version
+  with-test:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
 
 
 
