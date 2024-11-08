@@ -5,30 +5,29 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
-      - name: "start job"
       - name: "run node version"
-      - run: node --version
+        run: node --version
       - name: "run npm version"
-      - run: npm --version
+        run: npm --version
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
+      run: node --version
+      run: npm --version
     if: ${{ always() }}
     needs: [init]
   test:
     runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
+      run: node --version
+      run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test]
   release:
     runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
+      run: node --version
+      run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test,test]
   
@@ -36,14 +35,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
-      - run: node --version
-      - run: npm --version
+      run: node --version
+      run: npm --version
 
   deployment:
     runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
+      run: node --version
+      run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test,test,release, with-test]
 
