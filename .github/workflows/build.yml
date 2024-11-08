@@ -1,8 +1,5 @@
 name: "My workflow"
 on: push
-env:
-  # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
 jobs: 
   init:
@@ -48,9 +45,9 @@ jobs:
     needs: [init,unit-test,test,release]
 
 jobs:
+  runs-on: ubuntu-latest
   if: ${{ always() }}
   needs: [test]
-  runs-on: ubuntu-latest
   steps:
     - uses: actions/checkout@v1
     - run: node --version
