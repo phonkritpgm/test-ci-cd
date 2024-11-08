@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "start job"
-      - uses: actions/checkout@v1
       - name: "run node version"
       - run: node --version
       - name: "run npm version"
@@ -14,7 +13,6 @@ jobs:
   unit-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
@@ -22,7 +20,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
@@ -30,28 +27,24 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test,test]
+  
+  with-test:
+    needs: [test]
+    steps:
+      - run: node --version
+      - run: npm --version
+
   deployment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
-    needs: [init,unit-test,test,release]
-
-  with-test:
-    runs-on: ubuntu-latest
-    if: ${{ always() }}
-    needs: [test]
-    steps:
-      - uses: actions/checkout@v1
-      - run: node --version
-      - run: npm --version
+    needs: [init,unit-test,test,release, with-test]
 
 
 
