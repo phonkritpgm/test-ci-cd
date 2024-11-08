@@ -1,10 +1,42 @@
+name: "My workflow"
 on: push
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
 jobs:
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
+    # You can use configuration variables with the `vars` context for dynamic jobs
+    if: ${{ vars.USE_VARIABLES == 'true' }}
+    runs-on: ${{ vars.RUNNER }}
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
+    steps:
+    - name: Use variables
+      run: |
+        echo "repository variable : $REPOSITORY_VAR"
+        echo "organization variable : $ORGANIZATION_VAR"
+        echo "overridden variable : $OVERRIDE_VAR"
+        echo "variable from shell environment : $env_var"
+      env:
+        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+        
+    - name: ${{ vars.HELLO_WORLD_STEP }}
+      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
+      uses: actions/hello-world-javascript-action@main
+      with:
+        who-to-greet: ${{ vars.GREET_NAME }}
+        
   init:
     runs-on: ubuntu-latest
     steps:
+      - name: "start job"
       - uses: actions/checkout@v1
+      - name: "run node version"
       - run: node --version
+      - name: "run npm version"
       - run: npm --version
   unit-test:
     runs-on: ubuntu-latest
@@ -38,3 +70,23 @@ jobs:
       - run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test,test,release]
+
+
+
+
+
+
+  ## Setting a default shell and working directory ##
+  #   jobs:
+  # example-job:
+  #   runs-on: ubuntu-latest
+  #   defaults:
+  #     run:
+  #       working-directory: ./scripts
+  #   steps:
+  #     - name: Check out the repository to the runner
+  #       uses: actions/checkout@v4  
+  #     - name: Run a script
+  #       run: ./my-script.sh
+  #     - name: Run another script
+  #       run: ./my-other-script.sh
