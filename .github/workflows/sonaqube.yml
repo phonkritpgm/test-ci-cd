@@ -40,8 +40,8 @@ jobs:
          # 
          # Run the build of project by ANT
          # 
-         - name: Build
-           run: ant buildAll
+         ### - name: Build
+         ###   run: ant buildAll
          # 
          # Run the Sonar scan
          # 
