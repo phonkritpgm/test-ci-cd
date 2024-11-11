@@ -1,0 +1,121 @@
+
+on: push
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init]
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: on windows
+        run: node --version
+      - name: on moc os
+        run: npm --version
+      - name: on linux
+        run: npm --version
+    if: ${{ always() }}
+    needs: [init,unit-test]
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init,unit-test,test]
+
+  with-test:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - run: node --version
+      - run: npm --version
+    if: ${{ always() }}
+    needs: [init,unit-test,test,release,with-test]
+
+# name: "My workflow"
+# on: push
+
+# jobs: 
+#   init:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: "run node version"
+#       - run: node --version
+#       - name: "run npm version"
+#       - run: npm --version
+#   unit-test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: node --version
+#       - run: npm --version
+#     if: ${{ always() }}
+#     needs: [init]
+#   test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: node --version
+#       - run: npm --version
+#     if: ${{ always() }}
+#     needs: [init,unit-test]
+#   release:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: node --version
+#       - run: npm --version
+#     if: ${{ always() }}
+#     needs: [init,unit-test,test]
+  
+#   with-test:
+#     runs-on: ubuntu-latest
+#     needs: [test]
+#     steps:
+#       - run: node --version
+#       - run: npm --version
+
+#   deployment:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: node --version
+#       - run: npm --version
+#     if: ${{ always() }}
+#     needs: [init,unit-test,test,release, with-test]
+
+
+
+
+
+#   ## Setting a default shell and working directory ##
+#   #   jobs:
+#   # example-job:
+#   #   runs-on: ubuntu-latest
+#   #   defaults:
+#   #     run:
+#   #       working-directory: ./scripts
+#   #   steps:
+#   #     - name: Check out the repository to the runner
+#   #       uses: actions/checkout@v4  
+#   #     - name: Run a script
+#   #       run: ./my-script.sh
+#   #     - name: Run another script
+#   #       run: ./my-other-script.sh
