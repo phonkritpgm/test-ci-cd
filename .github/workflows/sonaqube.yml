@@ -6,13 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 11
-      uses: actions/setup-java@v2
+    - name: Check out Repository
+      uses: actions/checkout@v3
+    - name: Set up JDK
+      uses: actions/setup-java@v3
       with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: maven
+        java-version: 17
+
+    - name: Packaging Jar
+      id: packaging-jar
+      shell: bash
+      run: mvn clean install
     - name: Build with Maven cloud
       run:  mvn -B verify sonar:sonar -Dsonar.projectKey=javareachabilityy -Dsonar.organization=javareachabilityy -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
       env:
