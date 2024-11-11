@@ -55,6 +55,7 @@ jobs:
                -Dsonar.organization-swaraj1.sys
                -Dsonar.projectKey-SonarCloudCodeAnalysis
                -Dsonar.python.coverage.reportPaths=coverage.xml
+
          # 
          # Print out the artifacts list
          # 
