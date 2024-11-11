@@ -1,12 +1,77 @@
 
-on: push
+name: Run Github Actions
+
+on: 
+  push:
+    branches:
+      - main
 jobs:
+
   init:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - run: node --version
       - run: npm --version
+
+  # Sonarqube
+  SonarQube-Scan:
+      runs-on: ubuntu-latest
+      
+      steps:
+         # 
+         # Checkout the repository content
+         # 
+         - name: Checkout
+           uses: actions/checkout@v2
+           with:
+             # Disabling shallow clone 
+             fetch-depth: 0
+         # 
+         # Remove 'pom.xml' otherwise Sonar will fail forcing to use Maven   
+         # 
+         - name: Remove pom
+           run: rm -f pom.xml    
+         # 
+         # Setup Java JDK
+         # 
+         - name: Setup JDK
+           uses: actions/setup-java@v1
+           with:
+             java-version: '11'
+         # 
+         # Setup Node.js (for Sonar)
+         # 
+         - name: Setup Node.js
+           uses: actions/setup-node@v2    
+           with:
+             node-version: '12'         
+         # 
+         # Run the build of project by ANT
+         # 
+         ### - name: Build
+         ###   run: ant buildAll
+         # 
+         # Run the Sonar scan
+         # 
+         - name: SonarCloud Scan
+           uses: sonarsource/sonarcloud-github-action@v1.4
+           env:
+             GIT_HUB_PEROSNAL_TOKEN: ${{ secrets.GIT_HUB_PEROSNAL_TOKEN }}
+             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+           with:
+             args: >
+               -Dsonar.organization-swaraj1.sys
+               -Dsonar.projectKey-SonarCloudCodeAnalysis
+               -Dsonar.python.coverage.reportPaths=coverage.xml
+
+         # 
+         # Print out the artifacts list
+         # 
+         - name: Print artifacts
+           run: ls -R ./dist
+  # Sonarqube
+
   unit-test:
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +79,8 @@ jobs:
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
-    needs: [init]
+    needs: [init, SonarQube-Scan]
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +93,7 @@ jobs:
         run: npm --version
     if: ${{ always() }}
     needs: [init,unit-test]
+
   release:
     runs-on: ubuntu-latest
     steps:
