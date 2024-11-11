@@ -59,7 +59,7 @@ jobs:
           with:
             args: >
               -Dsonar.organization=phonkritpgm
-              -Dsonar.projectKey=test-ci-cd
+              -Dsonar.projectKey=phonkritpgm_test-ci-cd
               
         # -Dsonar.python.coverage.reportPaths=coverage.xml
   # Sonarqube
