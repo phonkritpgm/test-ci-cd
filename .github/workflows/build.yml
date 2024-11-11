@@ -32,64 +32,27 @@ jobs:
          # 
          # Checkout the repository content
          # 
-        - name: Checkout
-          uses: actions/checkout@v3
+        - name: Checkout source code
+          uses: actions/checkout@v2
           with:
              # Disabling shallow clone 
             fetch-depth: 0
-         # 
-         # Remove 'pom.xml' otherwise Sonar will fail forcing to use Maven   
-         # 
-        - name: Remove pom
-          run: rm -f pom.xml    
-         # 
-         # Setup Java JDK
-         # 
-        - name: Setup JDK
-          uses: actions/setup-java@v1
-          with:
-            java-version: 11
-        
-        - name: Cache SonarQube packages
-          uses: action/cache@v1
-          with:
-            path: ~/.sonar/cache
-            key: ${{ runner.os }}-sonar
-            restore-keys: ${{ runner.os }}-sonar
 
-        - name: Cache Maven packages
-          uses: actions/cache@v1
+        - name: Setup node.js
+          uses: actions/setup-node@v1
           with:
-            path: ~/.m2
-            key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-            restore-keys: ${{ runner.os }}-m2 
-         # 
-         # Setup Node.js (for Sonar)
-         # 
-        #  - name: Setup Node.js
-        #    uses: actions/setup-node@v2   
-        #    with:
-        #      node-version: 20   
-         # 
-         # Run the build of project by ANT
-         # 
-         ### - name: Build
-         ###   run: ant buildAll
-         # 
-         # Run the Sonar scan
-         #
+            java-version: 12
+        
+        - name: Install dependencies
+          run yarn install
 
         - name: SonarCloud Scan
-          uses: sonarsource/sonarcloud-github-action@v1.4
+          uses: sonarsource/sonarqube-scan-action@main
           env:
             GITHUB_TOKEN: ${{ secrets.GIT_HUB_PEROSNAL_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          #  with:
-          #    args: >
-          #      -Dsonar.organization-swaraj1.sys
-          #      -Dsonar.projectKey-SonarCloudCodeAnalysis
-          #      -Dsonar.python.coverage.reportPaths=coverage.xml
-
+            SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} 
+            
          # 
          # Print out the artifacts list
          # 
