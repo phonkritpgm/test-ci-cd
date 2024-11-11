@@ -1,4 +1,4 @@
-name: Run SonarQube with Maven
+name: Run SonarQube Scan Github Actions
 
 on: push
 
@@ -8,17 +8,22 @@ jobs:
     steps:
     - name: Check out Repository
       uses: actions/checkout@v3
-    - name: Set up JDK
+      with:
+        fetch-depth: 0
+        
+    - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
-        java-version: 17
+        distribution: 'temurin'
+        java-version: '17'
 
-    - name: Packaging Jar
-      id: packaging-jar
-      shell: bash
-      run: mvn clean install
-    - name: Build with Maven cloud
-      run:  mvn -B verify sonar:sonar -Dsonar.projectKey=javareachabilityy -Dsonar.organization=javareachabilityy -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@v1.5
       env:
-        GIT_HUB_TOKEN: ${{ secrets.GIT_HUB_PERSONAL_TOKEN }}
-        SONARCLOUD_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        GIT_HUB_PERSONAL_TOKEN: ${{ secrets.GIT_HUB_PERSONAL_TOKEN }}
+        SONAR_TOKEN: ${{ SONAR_TOKEN }}
+      with:
+        args: >
+          -Dsonar.organization-swaraj1.sys
+          -Dsonar.projectKey-SonarCloudCodeAnalysis
+          -Dsonar.python.coverage.reportPaths=coverage.xml
