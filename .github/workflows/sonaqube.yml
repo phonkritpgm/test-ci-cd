@@ -16,6 +16,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
+    - run: /usr/libexec/java_home -V
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@v1.5
