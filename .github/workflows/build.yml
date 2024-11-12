@@ -120,7 +120,7 @@ jobs:
       - run: node --version
       - run: npm --version
     if: ${{ always() }}
-    needs: [init,unit-test,test,release,with-test, docker-push-registry]
+    needs: [init,unit-test,test,release,with-test, build_docker_build_image_push_registry]
 
 # name: "My workflow"
 # on: push
