@@ -5,3 +5,7 @@ Add new feature branch - test
 \\ what
 //
 test string
+
+# CI, unitest, test, scancode, docker image, docker registry
+
+# CD / with jenkin, agro, 
