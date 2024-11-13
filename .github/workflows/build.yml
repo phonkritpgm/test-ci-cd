@@ -79,8 +79,8 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: DIcker image version
-        uses: docker --version
+      - name: Docker image version
+        run: echo docker --version
 
       - name: Docker build image
         run: docker build . -t ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:v2
