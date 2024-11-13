@@ -87,7 +87,7 @@ jobs:
         # continue-on-error: true
         with:
           context: .
-          # file: ./Dockerfile
+          file: ./docker/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:v2
   # #################
