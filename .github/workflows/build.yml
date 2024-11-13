@@ -85,8 +85,8 @@ jobs:
       #   uses: docker/setup-buildx-action@v3
 
       - name: Docker build image
-          run:
-            docker build . -t ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:v2
+        run:
+          docker build . -t ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:v2
 
       - name: Docker push image to registry
         uses: docker/build-push-action@v6
