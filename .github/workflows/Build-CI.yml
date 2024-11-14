@@ -4,15 +4,15 @@ name: Run Github Actions CI/CD
 on:
   push:
     branches:
-      - [ main ]  # Trigger on pushes to the main branch
+      - main
     tags: 
-      - [ 'v*.*.*' ]
+      - v*.*.*
 
   pull_request:
     branches:
-      - main  # Optional: Trigger on pull requests to main branch s
+      - main
     tags:
-      - [ v* ]
+      - v*
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
