@@ -22,6 +22,10 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  check-condition-on-release;
+  runs-on: windows-latest
+  if: "!contains(${GITHUB_REF#refs/*/}, 'main')"
+
   docker-image-fontend:
     runs-on: ubuntu-latest
     steps:
