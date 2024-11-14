@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
-      - uses: actions/checkout@v3
-      - run: node --version
-      - run: npm --version
+        - uses: actions/checkout@v3
+        - run: node --version
+        - run: npm --version
 
   # Sonarqube action scan code analysis
   SonarQube-Scan:
