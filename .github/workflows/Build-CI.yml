@@ -3,6 +3,7 @@ name: Run Github Actions CI/CD
 
 on:
   release:
+    types: [tags]
     tags: 
       - v*.*.*
 
@@ -30,7 +31,7 @@ jobs:
           echo ${{ github.event_name }}
 
       - name: check condition event
-        if: ${{ github.event_name == 'release' }}
+        if: ${{ github.event_name == 'tags' }}
         run: |
           echo 'event is not math '
           exit 1
