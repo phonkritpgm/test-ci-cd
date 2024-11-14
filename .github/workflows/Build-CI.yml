@@ -26,9 +26,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: check condition event
-        if: "!contains(${GITHUB_REF#refs/*/}, 'main')"
+        if: if: ${{ github.event_name == 'release' }}
         run: |
-              echo 'event is not math ' + ${GITHUB_REF#refs/*/}
+              echo 'event is not math '
               exit 1
 
   docker-image-fontend:
