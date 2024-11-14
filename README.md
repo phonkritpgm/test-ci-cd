@@ -13,3 +13,5 @@ test string
 # CI, unitest, test, scancode, docker image, docker registry
 
 # CD / with jenkin, agro, 
+
+https://medium.com/@kova98/automating-net-deployment-with-github-actions-and-docker-d43109d34f88
