@@ -25,9 +25,11 @@ jobs:
   check-condition-on-release:
     runs-on: windows-latest
     steps:
-      - name: check condition event
+      - name: check event name
         run: |
           echo ${{ github.event_name }}
+
+      - name: check condition event
         if: ${{ github.event_name == 'release' }}
         run: |
           echo 'event is not math '
