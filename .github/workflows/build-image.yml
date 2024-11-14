@@ -31,7 +31,8 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:${{ github.sha }} .
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:${{ github.sha }} ${{ secrets.DOCKER_USERNAME }}/testdocker:latest
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:${{ github.sha }}
+        # docker tag ${{ secrets.DOCKER_USERNAME }}/testdocker:latest
 
       # Step 4: Push the Docker image to the registry
       - name: Push Docker Image
