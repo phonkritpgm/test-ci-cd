@@ -22,7 +22,7 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-  check-condition-on-release;
+  check-condition-on-release:
   runs-on: windows-latest
   if: "!contains(${GITHUB_REF#refs/*/}, 'main')"
 
