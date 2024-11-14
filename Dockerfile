@@ -1,8 +1,8 @@
 # Base Image 
 FROM nginx:latest
 #Copy the index.html file /usr/share/nginx/html/
-COPY . /usr/share/nginx/html/index.html
+COPY ./ /usr/share/nginx/html/index.html
 #Expose Nginx Port
-EXPOSE 8088
+EXPOSE 80
 #Start NginxService 
 CMD ["nginx", "-g", "daemon off;"]
