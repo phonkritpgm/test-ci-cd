@@ -26,7 +26,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: check condition event
-        if: if: ${{ github.event_name == 'release' }}
+        if: ${{ github.event_name == 'release' }}
         run: |
               echo 'event is not math '
               exit 1
