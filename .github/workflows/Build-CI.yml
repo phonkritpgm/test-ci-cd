@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: check condition event
         run: |
-          echo github.event_name
+          echo ${{ github.event_name }}
         if: ${{ github.event_name == 'release' }}
         run: |
           echo 'event is not math '
