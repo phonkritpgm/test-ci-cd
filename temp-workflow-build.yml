@@ -96,7 +96,7 @@ jobs:
       #       image=${{ inputs.buildkit-image || env.BUILDKIT_IMAGE }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v1
+        uses: docker/build-push-action@v3
         # continue-on-error: true
         with:
           context: .
@@ -132,69 +132,25 @@ jobs:
     if: ${{ always() }}
     needs: [init,unit-test,test,release,with-test, build_docker_build_image_push_registry]
 
-# name: "My workflow"
-# on: push
-
-# jobs: 
-#   init:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: "run node version"
-#       - run: node --version
-#       - name: "run npm version"
-#       - run: npm --version
-#   unit-test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: node --version
-#       - run: npm --version
-#     if: ${{ always() }}
-#     needs: [init]
-#   test:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: node --version
-#       - run: npm --version
-#     if: ${{ always() }}
-#     needs: [init,unit-test]
-#   release:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: node --version
-#       - run: npm --version
-#     if: ${{ always() }}
-#     needs: [init,unit-test,test]
-  
-#   with-test:
-#     runs-on: ubuntu-latest
-#     needs: [test]
-#     steps:
-#       - run: node --version
-#       - run: npm --version
-
-#   deployment:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: node --version
-#       - run: npm --version
-#     if: ${{ always() }}
-#     needs: [init,unit-test,test,release, with-test]
-
-
-
-
-
-#   ## Setting a default shell and working directory ##
-#   #   jobs:
-#   # example-job:
-#   #   runs-on: ubuntu-latest
-#   #   defaults:
-#   #     run:
-#   #       working-directory: ./scripts
-#   #   steps:
-#   #     - name: Check out the repository to the runner
-#   #       uses: actions/checkout@v4  
-#   #     - name: Run a script
-#   #       run: ./my-script.sh
-#   #     - name: Run another script
-#   #       run: ./my-other-script.sh
+  # Step 5: Deploy to server via SSH
+  deployment-server:
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    needs: [init,unit-test,test,release,with-test, build_docker_build_image_push_registry]
+    steps:
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22  # Use your server’s SSH port (default is 22)
+          script: |
+            # Pull the latest Docker image
+            docker pull ${{ secrets.DOCKER_USERNAME }}/my-app:latest
+            
+            # Stop and remove the existing container
+            docker rm -f my-app || true
+            
+            # Run a new container with the latest image
+            docker run -d --name my-app -p 80:80 ${{ secrets.DOCKER_USERNAME }}/my-app:latest

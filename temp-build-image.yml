@@ -39,14 +39,6 @@ jobs:
           echo "--DOCKER_HUB_USERNAME" + ${{ secrets.DOCKER_HUB_USERNAME }}
           docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:${{ github.sha }} ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:latest
 
-      # Step 3: Build the Docker image
-      # - name: Build Docker Image
-      #   run: |
-      #     echo "--DOCKER_HUB_USERNAME" + ${{ secrets.DOCKER_HUB_USERNAME }}
-      #     docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:${{ github.sha }} .
-      #     docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:${{ github.sha }}
-        # docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:latest
-
       # Step 5: Push the Docker image to the registry
       - name: Push Docker Image
         run: |
