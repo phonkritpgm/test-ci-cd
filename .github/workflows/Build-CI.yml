@@ -4,18 +4,19 @@ name: Run Github Actions CI/CD
 on:
   push:
     branches:
-      - main  # Trigger on pushes to the main branch
-    tags:
-      - [ v* ]
+      - [ main ]  # Trigger on pushes to the main branch
+    tags: 
+      - [ 'v*.*.*' ]
+
   pull_request:
     branches:
       - main  # Optional: Trigger on pull requests to main branch s
     tags:
-      - 'v*'
+      - [ v* ]
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  
+
 jobs:
   docker-image-fontend:
     runs-on: ubuntu-latest
