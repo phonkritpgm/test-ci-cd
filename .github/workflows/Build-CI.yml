@@ -6,12 +6,16 @@ on:
     branches:
       - main  # Trigger on pushes to the main branch
     tags:
-      - 'v*'
+      - [ v* ]
   pull_request:
     branches:
       - main  # Optional: Trigger on pull requests to main branch s
     tags:
       - 'v*'
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+  
 jobs:
   docker-image-fontend:
     runs-on: ubuntu-latest
