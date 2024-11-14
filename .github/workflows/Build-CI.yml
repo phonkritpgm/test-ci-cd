@@ -26,10 +26,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: check condition event
+        run: |
+          echo github.event_name
         if: ${{ github.event_name == 'release' }}
         run: |
-              echo 'event is not math '
-              exit 1
+          echo 'event is not math '
+          exit 1
 
   docker-image-fontend:
     runs-on: ubuntu-latest
