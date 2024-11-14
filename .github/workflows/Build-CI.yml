@@ -23,6 +23,7 @@ env:
 
 jobs:
   check-condition-on-release:
+    runs-on: windows-latest
     steps:
       - name: check condition event
         if: "!contains(${GITHUB_REF#refs/*/}, 'main')"
