@@ -3,6 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /usr/src/app
 
 COPY ./backend-secuill/backend-secuill.csproj /usr/src/app
+COPY ./backend-secuill/appsettings.json /usr/src/app/appsettings.json
 RUN dotnet restore
 
 COPY ./backend-secuill ./usr/src/app
