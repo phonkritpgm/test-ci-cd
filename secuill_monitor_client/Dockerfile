@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 #COPY ./secuill_monitor_client/package*.json ./app
 COPY package*.json /usr/src/app
 
-RUN ls -la
+RUN ls -la /usr/src/app
 RUN npm install
 CMD ["npm","start"]
 
