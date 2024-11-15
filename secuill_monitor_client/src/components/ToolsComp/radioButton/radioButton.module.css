@@ -1,0 +1,73 @@
+.RadioLabel{
+    font-weight: 600;
+    font-size:  var(--tools-font-size);
+    color: inherit;
+    cursor: pointer;
+}
+
+.RadioLabel:disabled {
+    color: var(--gray-400);
+    cursor: not-allowed;
+}
+
+.RadioLabel:disabled::after {
+    margin-left: 8px;
+    width: 12px;
+    height: 15px;
+    display: inline-block;
+    content: " ";
+    -webkit-mask: url("/lock.svg") no-repeat 50% 50%;
+    -webkit-mask-size: cover;
+    background-color: var(--gray-400);
+}
+
+.Wrapper{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.RadioInput{
+    appearance: none;
+    margin: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-800);
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.RadioInput::after{
+    content: "";
+    display: block;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+}
+
+.RadioInput:checked::after{
+    background-color: var(--gray-600);
+}
+
+.RadioInput:hover::after{
+    background-color: var(--gray-600);
+}
+
+.RadioInput:focus {
+    outline: 2px solid  var(--gray-900);
+}
+
+.RadioInput:disabled {
+    cursor: not-allowed;
+    border-color: var(--gray-400);
+    background-color: var(--gray-200);
+}
+.RadioInput:disabled::after {
+    background-color: var(--gray-200);
+}
+
+.RadioInput:disabled:checked::after {
+    background-color: var(--gray-400);
+}

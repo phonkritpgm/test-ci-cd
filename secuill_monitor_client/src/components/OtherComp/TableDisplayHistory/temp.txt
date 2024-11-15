@@ -1,0 +1,210 @@
+// import React from "react";
+// import { useSortBy, useTable } from "react-table";
+// import { v4 as uuidv4 } from 'uuid';
+// import styles from "./TableDisplayHistory.module.css";
+
+// const dataPresc = [
+//     {
+//         PrescriptionDate: "2024-05-23",
+//         PrescriptionDateCount: 2,
+//         PrescriptionNo: "TEST-0001",
+//         PrescriptionSeq: 1,
+//         PrescriptionOrderCount: 2,
+//         DrugName: "Aspirin 200 mg",
+//         DrugQty: "10",
+//         ApproveTime: "08:00",
+//         DispenseStatus: "Complete",
+//         UserDispense: "Tester Thanes",
+//         DispenseTime: "08:10",
+//     },
+//     {
+//         PrescriptionDate: "2024-05-23",
+//         PrescriptionDateCount: 2,
+//         PrescriptionNo: "TEST-0001",
+//         PrescriptionSeq: 1,
+//         PrescriptionOrderCount: 2,
+//         DrugName: "Paracetamal 500 mg",
+//         DrugQty: "10",
+//         ApproveTime: "08:00",
+//         DispenseStatus: "Complete",
+//         UserDispense: "Tester Thanes",
+//         DispenseTime: "08:10",
+//     },
+//     {
+
+//         PrescriptionDate: "2024-05-22",
+//         PrescriptionDateCount: 2,
+//         PrescriptionNo: "TEST-0002",
+//         PrescriptionSeq: 1,
+//         PrescriptionOrderCount: 2,
+//         DrugName: "Aspirin 200 mg",
+//         DrugQty: "10",
+//         ApproveTime: "08:00",
+//         DispenseStatus: "Complete",
+//         UserDispense: "Tester Thanes",
+//         DispenseTime: "08:10",
+//     },
+//     {
+//         PrescriptionDate: "2024-05-22",
+//         PrescriptionDateCount: 2,
+//         PrescriptionNo: "TEST-0002",
+//         PrescriptionSeq: 1,
+//         PrescriptionOrderCount: 2,
+//         DrugName: "Paracetamal 500 mg",
+//         DrugQty: "10",
+//         ApproveTime: "08:00",
+//         DispenseStatus: "Complete",
+//         UserDispense: "Tester Thanes",
+//         DispenseTime: "08:10",
+//     },
+//     {
+//         PrescriptionDate: "2024-05-22",
+//         PrescriptionDateCount: 2,
+//         PrescriptionNo: "TEST-0002",
+//         PrescriptionSeq: 1,
+//         PrescriptionOrderCount: 2,
+//         DrugName: "Paracetamal 500 mg",
+//         DrugQty: "10",
+//         ApproveTime: "08:10",
+//         DispenseStatus: "Complete",
+//         UserDispense: "Tester Thanes (08:10)",
+//         DispenseTime: "08:10",
+//     }
+// ];
+
+// export const useRowSpan = (instance: any) => {
+//     const { allColumns } = instance;
+//     let rowSpanHeaders: any = [];
+
+//     allColumns.forEach((column: any) => {
+//         const { id, enableRowSpan } = column;
+
+//         if (enableRowSpan) {
+//             rowSpanHeaders = [
+//                 ...rowSpanHeaders,
+//                 { id, topCellValue: null, topCellIndex: 0 },
+//             ];
+//         }
+
+//         Object.assign(instance, { rowSpanHeaders });
+//     });
+// };
+
+// const TableDisplayHistory = ( props: any ) => {
+//     const tableData = React.useMemo(() => dataPresc, []);
+//     const columns = React.useMemo(() => {
+//         return [
+//             {
+//                 Header: "วันที่",
+//                 accessor: "PrescriptionDate",
+//                 enableRowSpan: true,
+//             },
+//             {
+//                 Header: "เลขที่ใบสั่งยา",
+//                 accessor: "PrescriptionNo",
+//                 enableRowSpan: true,
+//             },
+//             {
+//                 Header: "ชื่อยา",
+//                 accessor: "DrugName",
+//             },
+//             {
+//                 Header: "จำนวน",
+//                 accessor: "DrugQty",
+//             },
+//             {
+//                 Header: "เวลาเบิก",
+//                 accessor: "ApproveTime",
+//                 enableRowSpan: true,
+//             },
+//             {
+//                 Header: "จ่ายยา",
+//                 accessor: "UserDispense",
+//                 enableRowSpan: true,
+//             },
+//         ];
+//     }, []);
+
+//     const {
+//         getTableProps,
+//         getTableBodyProps,
+//         headerGroups,
+//         rows,
+//         prepareRow,
+//         rowSpanHeaders,
+//     } = useTable(
+//         { columns, data: tableData },
+//         (hooks: any) => hooks.useInstance.push(useRowSpan),
+//         useSortBy
+//     );
+
+//     return (
+//         <div className={ styles.table_container }>
+//             <table key={ uuidv4() } {...getTableProps()}>
+//                 <thead>
+//                     {headerGroups.map((headerGroup) => (
+//                         // {...headerGroup.getHeaderGroupProps()}
+//                         <tr key={ uuidv4() } >
+//                             {headerGroup.headers.map((column) => (
+//                                 // {...column.getHeaderProps()}
+//                                 <th key={ uuidv4() } >
+//                                     {column.render("Header")}
+//                                 </th>
+//                             ))}
+//                         </tr>
+//                     ))}
+//                 </thead>
+//                 <tbody {...getTableBodyProps()}>
+//                     {rows.map((row, i) => {
+//                         prepareRow(row);
+
+//                         for (let j = 0; j < row.allCells.length; j++) {
+//                             const cell = row.allCells[j];
+//                             const rowSpanHeader = rowSpanHeaders.find(
+//                                 (x) => x.id === cell.column.id
+//                             );
+
+//                             if (rowSpanHeader) {
+//                                 if (
+//                                     rowSpanHeader.topCellValue === null ||
+//                                     rowSpanHeader.topCellValue !== cell.value
+//                                 ) {
+//                                     cell.isRowSpanned = false;
+//                                     rowSpanHeader.topCellValue = cell.value;
+//                                     rowSpanHeader.topCellIndex = i;
+//                                     cell.rowSpan = 1;
+//                                 } else {
+//                                     rows[rowSpanHeader.topCellIndex].allCells[j].rowSpan++;
+//                                     cell.isRowSpanned = true;
+//                                 }
+//                             }
+//                         }
+//                         return null;
+//                     })}
+//                     {rows.map((row) => {
+//                         return (
+//                             <tr key={ uuidv4() } >
+//                                 {/* {...row.getRowProps()} */}
+//                                 {row.cells.map((cell) => {
+//                                     if (cell.isRowSpanned) return null;
+//                                     else
+//                                         return (
+//                                             <td key={ uuidv4() }
+//                                                 rowSpan={cell.rowSpan}
+//                                                 // {...cell.getCellProps()}
+//                                             >
+//                                                 {cell.render("Cell")}
+//                                             </td>
+//                                         );
+//                                 })}
+//                             </tr>
+//                         );
+//                     })}
+//                 </tbody>
+//             </table>
+//         </div>
+
+//     );
+// };
+
+// export default TableDisplayHistory;

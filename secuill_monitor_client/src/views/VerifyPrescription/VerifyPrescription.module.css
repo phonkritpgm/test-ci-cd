@@ -1,0 +1,108 @@
+
+.verify_orders{
+    margin: 0 5px;
+}
+
+/* Table display */
+.tb_verify{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    
+    overflow-x: hidden;
+    /* background-color: aquamarine; */
+    padding: 10px 0;
+}
+
+.tb_verify table{
+    display: table;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0px 3px;
+}
+
+.tb_verify tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+/* 
+.tb_verify td:first-child,
+.tb_verify th:first-child {
+  border-radius: 20px 0 0 20px;
+}
+
+.tb_verify td:last-child,
+.tb_verify th:last-child {
+  border-radius: 0 20px 20px 0;
+} */
+
+.tb_verify thead tr:nth-child(1){
+    border-bottom: 1px solid var(--green-400);
+}
+
+.tb_verify tr{
+    background-color: #eaedf5;
+}
+
+.tb_verify tr:nth-child(even) {
+    background-color: var(--gray-100);
+}
+
+.tb_verify tr th:nth-child(1),
+.tb_verify tr td:nth-child(1){
+    width: 100px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tb_verify tr th{
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 5px;
+    text-align: left;
+    background-color: var(--primary-300);
+    color: white;
+}
+
+.tb_verify tr td{
+    font-size: var(--font-size-xsm);
+    padding-left: 5px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    /* border-bottom: 1px solid var(--gray-500); */
+    /* vertical-align: middle;
+    text-align: center; */
+    /* text-wrap: nowrap; */
+}
+
+.tb_verify tr td button{
+    font-size: var(--font-size-xsm);
+    background-color: var(--gray-400);
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 3px 10px;
+    text-align: center;
+}
+
+.tb_verify .en_verify{
+    background-color: var(--green-500);
+    color: white;
+}
+
+.tb_verify .ds_verify{
+    background-color: var(--gray-500);
+    color: white;
+}
+
+.tb_verify .ds_proud{
+    background-color: var(--blue-900);
+    color: white;
+}
+
+/* Table display */

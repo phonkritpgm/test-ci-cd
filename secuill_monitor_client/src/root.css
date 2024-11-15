@@ -1,0 +1,316 @@
+@font-face {
+  font-family: "Sarabun", sans-serif;
+  src: url('./assets/font/Sarabun/Sarabun-Regular.ttf');
+  
+}
+
+:root {
+
+  /* root font */
+  font-family: "Sarabun", sans-serif;
+  /* line-height: 1.5; */
+  font-weight: 400;
+  font-size: 18px;
+
+  /* font size */
+  --font-size-xxs: 0.6rem;  /*        10.8 px                 */
+  --font-size-xsm: 0.7rem;  /*        12.6 px                 */
+  --font-size-sm: 0.8rem;   /*        14.4 px                 */
+  --font-size-xmd: 0.9rem;  /*        16.2 px                 */
+  --font-size-md: 1rem;     /*        root size 18 px         */
+  --font-size-lg: 1.3rem;   /*        23.4 px                 */
+  --font-size-xlg: 2rem;    /*        36 px                   */
+
+  /* font-synthesis: none; */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* header , body , menubar height size */
+  --header-height: 40px;
+  --menu-height: calc(100vh - var(--header-height)) ;
+  --body-height: var(--menu-height);
+
+  /* max width screen */
+  --screen-max: 1200px;
+  --screen-medium: 650px;
+  --screen-min: 450px;
+  --screen-x-min: 320px;
+
+  /* font color */
+  --font-color-white-1: rgb(230, 230, 230, 0.87);
+  --font-color-black-1: rgb(50, 50, 50, 0.87);
+
+  /* main-bg-color */
+  --bg-color: rgb(255, 255, 255);
+  /* --bg-color: rgb(49, 49, 49); */
+
+}
+
+/* primary color */
+:root{
+  /* https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors */
+  /* colors primary */
+  --primary-50: #FCE4EC;
+  --primary-100: #F8BBD0;
+  --primary-200: #F48FB1;
+  --primary-300: #F06292;
+  --primary-400: #EC407A;
+  --primary-500: #E91E63;
+  --primary-600: #D81B60;
+  --primary-700: #C2185B;
+  --primary-800: #AD1457;
+  --primary-900: #880E4F;
+
+  /* primary color 2 */
+  --primary2-50: #FCE4EC;
+  --primary2-100: #F8BBD0;
+  --primary2-200: #F48FB1;
+  --primary2-300: #F06292;
+  --primary2-400: #EC407A;
+  --primary2-500: #E91E63;
+  --primary2-600: #D81B60;
+  --primary2-700: #C2185B;
+  --primary2-800: #AD1457;
+  --primary2-900: #880E4F;
+
+  /* gray */
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+
+  /* green active  */
+  --green-100: rgb(161, 248, 180);
+  --green-200: rgb(108, 214, 131);
+  --green-300: rgb(71, 201, 99);
+  --green-400: rgb(26, 189, 61);
+  --green-500: rgb(0, 170, 40);
+
+  --blue-50: #86deff;
+  --blue-100: #6ad6ff;
+  --blue-200: #56d1ff;
+  --blue-300: #40cbff;
+  --blue-400: #2ec6ff;
+  --blue-500: #1ec2ff;
+  --blue-600: #0cbdff;
+  --blue-700: #00b9ff;
+  --blue-800: #00a2dd;
+  --blue-900: #008cbe;
+}
+
+:root {
+
+  /* color main */
+  --main-color-1: white;
+  --main-color-2: dark;
+  
+  /* color button */
+  --btn-color-add: rgb(49, 165, 243);
+  --btn-color-edit: rgb(49, 165, 243);
+  --btn-color-update: rgb(49, 165, 243);
+  --btn-color-delete: rgb(49, 165, 243);
+
+  /* color button hover */
+  --btn-color-add-hover: rgb(49, 165, 243);
+  --btn-color-edit-hover: rgb(49, 165, 243);
+  --btn-color-update-hover: rgb(49, 165, 243);
+  --btn-color-delete-hover: rgb(49, 165, 243);
+
+  /* color label status code */
+  --st-error: rgb(248, 47, 47);
+  --st-success: rgb(12, 207, 22);
+  --st-warning: rgb(252, 154, 8);
+  --st-info: rgb(33, 145, 250);
+  --st-secondary: rgb(190, 190, 190);
+
+  /* size border box */
+
+  /* box radiant */
+  
+  /* box shadow style */
+  --shadowbox-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadowbox-2: 0 1px 3px 0 rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(255, 255, 255, 0.06);
+
+  /* box shadow*/
+  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+main{
+  background-color: var(--bg-color);
+  color: var(--font-color-black-1);
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------- */
+.root_ovw_container{
+  position: relative;
+  width: 100%;
+  height: calc(100vh - var(--header-height) - 16px);
+  overflow: hidden;
+  /* background-color: #1e293b; */
+}
+
+.root_title{
+  position: relative;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+.root_title h4, .root_title h5{
+  color: var(--primary-400);
+  /* font-size: var(--font-size-sm); */
+}
+
+.root_title p{
+  font-size: var(--font-size-sm);
+  padding: 5px 0;
+}
+
+.root_white_space{
+  width: 100%;
+  height: 30px;
+}
+/* ------------------------------------------------------------------- */
+
+* hr{
+  clear: both;
+  border: solid 1px var(--primary-200);
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+/* ------------------------------------------------------------------- */
+/* tools styles */
+:root{
+  /* ADD = 'nm_add_color',
+  EDIT = 'nm_edit_color',
+  DELETE = 'nm_delete_color',
+  BACK = 'nm_back_color',
+  NEXT = 'nm_next_color',
+  OK = 'nm_ok_color',
+  RETRY = 'nm_retry_color',
+  CANCEL = 'nm_cancel_color', */
+
+  --tools-font-size: var(--font-size-sm);
+  --tools-border: 1px solid;
+  --tools-border-radius: 10px;
+  --fools-font-color: #fff;
+  --tools-border-color: rgb(140, 140, 140);
+  --tools-shadow-box: 0 1px 2px 2px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --tools-padding-input: 8px 10px;
+  --tools-padding-scale: calc(4px + (var(--font-size-sm) * 0.1) ) var(--font-size-xsm);
+
+}
+/* ------------------------------------------------------------------- */
+
+/* scrollBar custom style IOS */
+::-webkit-scrollbar{
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5); 
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #707070;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #355cc9;
+}
+::-webkit-overflow-scrolling:touch {
+  background:#707070;
+  width: 5px;
+}
+/* scroll bar custom */
+
+@media screen and (min-width: 1441px) {
+  :root{
+    transition: 0.3s all ease-in-out;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  :root{
+    transition: 0.3s all ease-in-out;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  :root{
+    transition: 0.3s all ease-in-out;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  :root{
+    transition: 0.3s all ease-in-out;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  :root{
+    transition: 0.3s all ease-in-out;
+    font-size: 14px;
+  }
+}
+
+/* ------------------------------------------------------------------------- */
+/* test main css */
+/* bg color */
+
+/* text color */
+
+/* border none */
+/* border radius */
+
+/* button */
+
+/* input */
+
+/* container */
+
+/* media screen responsive */

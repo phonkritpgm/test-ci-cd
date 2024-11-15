@@ -1,0 +1,72 @@
+.tb_timeline_number{
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    
+    overflow-x: scroll;
+    /* background-color: aquamarine; */
+    padding: 10px 0;
+}
+
+.tb_timeline_number table{
+    display: table;
+    border: none;
+    border-collapse: collapse;
+}
+
+.tb_timeline_number tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.tb_timeline_number tr:nth-child(even) {
+    background-color: var(--gray-100);
+}
+
+.tb_timeline_number thead tr:nth-child(1){
+    border-bottom: 1px solid var(--green-400);
+}
+
+.tb_timeline_number tr{
+    border-bottom: 1px solid var(--gray-500);
+}
+
+.tb_timeline_number tr th:nth-child(1){
+    min-width: 200px;
+    text-align: left;
+}
+
+.tb_timeline_number tr th{
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 0 10px 0 5px;
+    text-align: center;
+}
+
+.tb_timeline_number tr td{
+    font-size: var(--font-size-xsm);
+    padding: 2px 0;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tb_timeline_number tr td:nth-child(1){
+    padding: 5px 5px;
+    vertical-align: middle;
+    text-align: left;
+    text-wrap: nowrap;
+}
+
+.tb_timeline_number tr td button{
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    width: 1.3em;
+    height: 1.3em;
+    background-color: var(--green-500);
+    color: white;
+}

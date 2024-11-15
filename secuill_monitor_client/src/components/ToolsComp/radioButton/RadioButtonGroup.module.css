@@ -1,0 +1,17 @@
+.StyledLegend{
+    font-weight: 600;
+    font-size: var(--tools-font-size);
+    color: inherit;
+    /* font-family: StabilGrotesk, -apple-system, BlinkMacSystemFont, "Segoe UI",
+   Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
+}
+
+.StyledFieldset{
+    border: none;
+}
+
+.RbGroupWrapper{
+    padding: 0.5rem;
+    display: flex;
+    gap: 1rem;
+}

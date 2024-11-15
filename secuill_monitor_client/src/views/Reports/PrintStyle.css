@@ -1,0 +1,92 @@
+
+/* ---------------------------------------------------------- */
+/* Styles go here */
+.page-header, .page-header-space {
+    height: auto;
+    padding-top: 10px;
+}
+  
+.page-footer, .page-footer-space {
+    height: 50px;
+}
+
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid black; /* for demo */
+    background: yellow; /* for demo */
+}
+  
+.page-header {
+    position: fixed;
+    top: 0mm;
+    width: 100%;
+    border-bottom: 1px solid black; /* for demo */
+    background: yellow; /* for demo */
+}
+
+table{
+    /* border-spacing: 0px; */
+}
+
+.page-table{
+}
+
+.page {
+    page-break-after: always;
+}
+  
+@page {
+    size: portrait;
+    /* landscape, portrait */
+    margin-top: 0.3in;
+    margin-bottom: 0.4in;
+    margin-left: 0.4in;
+    margin-right: 0.4in;
+    /* margin: 20mm; */
+}
+  
+@media print {
+
+    /* event media print justify content center */
+    .page-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+     thead {display: table-header-group;} 
+     tfoot {display: table-footer-group;}
+     
+     button {display: none;}
+     
+     /* body {margin: 0;} */
+     
+}
+
+/* setting page size */
+/* @page {
+    width: 1.97in;
+    height: 1.57in;
+    margin: 0;
+    padding: 0;
+}
+    
+@media print {
+    html, body {
+        width: 1.97in;
+        height: 1.97in;
+    }
+} */
+
+.test{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    overflow-y: auto;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+}

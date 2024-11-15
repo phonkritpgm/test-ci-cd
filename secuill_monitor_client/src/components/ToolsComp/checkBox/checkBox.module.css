@@ -1,0 +1,26 @@
+.container{
+    display:flex;
+    flex-direction:"row";
+    gap:10px;
+    align-items:center;
+}
+
+.input{
+    width: 20px;
+    height: 20px;
+}
+
+.input:checked::after{
+    background-color: var(--gray-600);
+}
+.input:hover::after{
+    background-color: var(--gray-600);
+}
+
+.input:hover{
+    outline: 2px solid  var(--gray-900);
+}
+
+.label{
+    font-size: var(--font-size-xsm);
+}

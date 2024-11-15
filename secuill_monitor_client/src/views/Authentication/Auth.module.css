@@ -1,0 +1,196 @@
+.auth{
+    position: relative;
+    padding: 10px;
+}
+
+.flex_center{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.auth .auth_message{
+    width: 100%;
+    min-height: 50px;
+    margin-top: auto;
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+    
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; */
+}
+
+.group_input{
+    display: block;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+}
+
+.group_input label{
+    font-size: var(--font-size-xsm);
+    font-weight: 600;
+    padding-bottom: 2px;
+}
+
+.group_input .my_input{
+    width: 100px;
+}
+
+.auth .btn_submit{
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.auth .btn_submit button{
+    width: 100% !important;
+    padding: 10px;
+}
+
+/* message */
+.auth_message_show,
+.auth_message_show_err{
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth_message_show p{
+    font-size: var(--font-size-sm);
+}
+
+.auth_message_show_err p{
+    font-size: var(--font-size-xsm);
+    /* color: red; */
+}
+
+.message_color_green{
+    color: green;
+}
+
+.message_color_red{
+    color: rgb(223, 1, 1);
+}
+
+.message_color_orange{
+    color: rgb(255, 75, 4);
+}
+
+.message_color{
+    color: var(--font-color-black-1);
+}
+
+/* check authentication */
+.check_auth_desc{
+    font-size: var(--font-size-md);
+    padding: 15px;
+}
+
+.btn_recon_auth{
+    padding: 10px;
+}
+
+/* cloading */
+.loading {
+    width: 90px;
+    height: 90px;
+    display: block;
+    margin: 10% auto;
+}
+
+/* check marker */
+.checkmark__circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: #7ac142;
+    fill: none;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+  
+.checkmark {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    margin: 5% auto;
+    box-shadow: inset 0px 0px 0px #7ac142;
+    animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+  
+.checkmark__check {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+  
+@keyframes stroke {
+    100% {
+      stroke-dashoffset: 0;
+    }
+}
+@keyframes scale {
+    0%, 100% {
+      transform: none;
+    }
+    50% {
+      transform: scale3d(1.1, 1.1, 1);
+    }
+}
+@keyframes fill {
+    100% {
+      box-shadow: inset 0px 0px 0px 30px #7ac142;
+    }
+}
+
+/* loading spinner */
+#svg_spinner{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: block;
+    margin: 5% auto;
+
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 1.2s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+
+    -moz-transition-property: -moz-transform;
+    -moz-animation-name: rotate; 
+    -moz-animation-duration: 1.2s; 
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+
+    transition-property: transform;
+    animation-name: rotate; 
+    animation-duration: 1.2s; 
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes rotate {
+    from {-webkit-transform: rotate(0deg);}
+    to {-webkit-transform: rotate(360deg);}
+}
+
+@-moz-keyframes rotate {
+    from {-moz-transform: rotate(0deg);}
+    to {-moz-transform: rotate(360deg);}
+}
+
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+  

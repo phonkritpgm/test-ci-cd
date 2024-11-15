@@ -1,0 +1,1 @@
+docker run -it --rm -p <port>:8080 --name aspnetcore_sample aspnetapp

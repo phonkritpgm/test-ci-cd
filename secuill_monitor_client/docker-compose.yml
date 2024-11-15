@@ -1,0 +1,11 @@
+version: "3.4"
+services:
+  fontend-secuill:
+     build: .
+     restart: unless-stopped
+     ports:
+      - "8883:8883"
+     networks:
+      - app-network
+networks:
+   app-network:

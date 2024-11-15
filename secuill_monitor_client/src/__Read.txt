@@ -1,0 +1,19 @@
+/* hover before after */
+/* https://stackoverflow.com/questions/40226710/before-and-after-hover-effect */
+
+https://codesandbox.io/s/react-typescript-axios-redux-action-creators-forked-muy9k?file=/src/components/RandomUserWithReduxHook.tsx
+
+
+// ignor error for typescript
+[use comment top line error] -> // @ts-ignore @ts-expect-error  ,  //@ts-ignore , //@ts-expect-error
+
+or use -> // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+or use top component -> /* eslint-disable @typescript-eslint/ban-ts-comment */
+
+
+
+static deploy vit
+https://vitejs.dev/guide/static-deploy
+
+css : learn
+https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing

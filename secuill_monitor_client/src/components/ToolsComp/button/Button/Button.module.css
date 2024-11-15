@@ -1,0 +1,50 @@
+.nm_btn{
+    font-family: inherit;
+    font-size: var(--tools-font-size);
+    font-weight: 400;
+    padding: var(--tools-padding-scale);
+    border-radius: var(--tools-border-radius);
+    margin: 0; 
+    border: none;
+    cursor: pointer;
+
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: '...';
+}
+
+.nm_btn > span{
+    font-size: var(--tools-font-size);
+}
+
+/* .nm_btn:hover{
+    background: var(--primary-400);
+    opacity: 0.8;
+} */
+
+.nm_border{
+    border: 2px solid var(--primary-600);
+    background-color: transparent;
+}
+
+.nm_border:hover{
+    color: #fff;
+    background: var(--primary-400);
+}
+
+.nm_default_color { background: #ddd;}
+
+.nm_add_color{ color: #fff; background: var(--primary-400);}
+.nm_add_color:hover{ color: #fff; background: var(--primary-600);}
+
+.nm_edit_color{ color: #fff; background: #fa9804 !important;}
+.nm_delete_color{ color: #fff; background: #cf0f0f !important;}
+.nm_back_color{ color: #fff; background: #0a6bc5 !important;}
+.nm_next_color{ color: #fff; background: #0a6bc5 !important;}
+.nm_ok_color{ color: #fff; background: var(--primary-400) !important;}
+.nm_retry_color{ color: #fff; background: #fa9804 !important;}
+.nm_cancel_color{ color: #fff; background: #7e7d7d !important;}
+.nm_submit_color{ color: #fff; background: var(--primary-400) !important;}
+.nm_search_color{color:#fff; background: #02b102 !important;}
+
+

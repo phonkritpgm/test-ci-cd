@@ -1,0 +1,1 @@
+export * as IPerson from './person'

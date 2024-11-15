@@ -1,0 +1,10 @@
+name: Run Github Actions CI/CD
+
+on:
+  release:
+    types: [tags]
+    tags: 
+      - v*.*.*
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}

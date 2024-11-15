@@ -1,0 +1,285 @@
+.title{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.title h5{
+    padding: 5px 0;
+}   
+
+.search{
+    margin-top:10px;
+}
+
+.verify_orders{
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+.tb_verify{
+    width: 47%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.table{
+    height: 100%;
+}
+
+.tb_verify table{
+    display: table;
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+
+.tb_verify  tbody{
+    display: table-row-group;
+    /* vertical-align: middle; */
+    unicode-bidi: isolate;
+    border-color: inherit;
+    border: 1px solid silver;
+    width: 100%;
+    height: 100%;
+    max-height: 75vh;
+    display: block;
+    overflow: auto;
+}
+
+
+.tb_verify thead,
+.tb_verify tbody .tb_verify tr {
+    display: table;
+    width: 100%;
+    /* table-layout: fixed; */
+    /* even columns width , fix width of table too*/
+}
+
+
+.tb_verify tr{
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+
+.row_active{ 
+    background: var(--blue-100);
+}
+.row_inactive{ 
+    background: none; 
+}
+
+.row_disable{ 
+    background:  gray; 
+}
+
+.tb_verify tr:nth-child(even) {
+    background-color: #ececec;
+}
+
+.tb_verify tr th{
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 5px;
+    text-align: left;
+    background-color: var(--primary-300);
+    color: white;
+}
+
+.tb_verify tr td{
+    font-size: var(--font-size-xsm);
+    padding-left: 5px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+
+}
+
+
+.tb_verify tr th:nth-child(1),
+.tb_verify tr td:nth-child(1){
+    width: 120px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tb_verify tr th:nth-child(2),
+.tb_verify tr td:nth-child(2){
+    width: 30vw;
+    vertical-align: middle;
+    text-align: left;
+    text-wrap: nowrap;
+}
+
+.tb_verify tr th:nth-child(3),
+.tb_verify tr td:nth-child(3){
+    width: 120px;
+    vertical-align: middle;
+    text-align: center;
+    text-wrap: nowrap;
+}
+
+.message_notfound{
+    width: 100%;
+    text-align: center;
+    font-size: var(--font-size-xsm);
+    border: 1px solid silver;
+    border-bottom: 1px solid gray;
+}
+
+.lot{
+    width: 50%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.control{
+    margin-top:10px;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    gap:1rem;
+}
+
+.control p{
+    font-size:var(--font-size-xmd);
+    text-wrap: nowrap;
+}
+
+.fromControl{
+    width: 100%;
+    height: 50%;
+}
+
+.tbLot{
+    width: 100%;
+    height: 50%;
+}
+
+.tbLot table{
+    display: table;
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+.tbLot .table tbody{
+    display: table-row-group;
+    /* vertical-align: middle; */
+    unicode-bidi: isolate;
+    border-color: inherit;
+    border: 1px solid silver;
+    height: 100%;
+    max-height: 30.5vh;
+    display: block;
+    overflow: auto;
+}
+.tbLot thead ,.tbLot tbody ,.tbLot tr{
+    display: table;
+    width: 100%;
+}
+
+.tbLot tr{
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+
+.row_active{ background-color: var(--blue-100); }
+.row_inactive{ background-color: none; }
+
+/* .tbLot tr:nth-child(even) {
+    background-color: #ececec;
+} */
+
+.tbLot tr th:nth-child(1),
+.tbLot tr td:nth-child(1){
+    width: 170px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tbLot tr th:nth-child(2),
+.tbLot tr td:nth-child(2),
+.tbLot tr th:nth-child(3),
+.tbLot tr td:nth-child(3){
+    width: 120px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tbLot tr th:nth-child(4),
+.tbLot tr td:nth-child(4),
+.tbLot tr th:nth-child(5),
+.tbLot tr td:nth-child(5){
+    width: 180px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tbLot tr th:nth-child(6),
+.tbLot tr td:nth-child(6)
+{
+    width: 70px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+
+.tbLot tr th{
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 5px;
+    text-align: left;
+    background-color: var(--primary-300);
+    color: white;
+}
+
+.tbLot tr td{
+    font-size: var(--font-size-xsm);
+    padding-left: 5px;
+    padding-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    /* vertical-align: middle;
+    text-align: center; */
+}
+
+.tbLot tr td button{
+    width: 70px;
+    font-size: var(--font-size-xxs);
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 890px) {
+    .tb_verify{
+        width: 100%;
+    }
+    .tb_verify table{
+        height: 200px;
+    }
+    .verify_orders{
+        height: 50%;
+        flex-direction: column;
+    }
+    .lot{
+        width: 100%;
+    }
+}

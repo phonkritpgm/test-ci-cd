@@ -1,0 +1,260 @@
+.flex_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dispensing{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5em;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.box_data{
+    width: 8em;
+    height: 5em;
+    border-radius: 10px;
+    box-shadow: var(--shadow-1);
+    display: flex;
+    flex-direction: column;
+}
+
+.box_title{
+    width: 100%;
+    height: 60px;
+}
+
+.box_title h5{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow-wrap: "...";
+}
+
+.box_desc{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box_desc p{
+    /* font-size: var(--font-size-md); */
+    font-size: 1rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-wrap: "...";
+}
+
+.box_in_rows{
+    display: flex;
+    flex-direction: row;
+}
+
+.color_box1{
+    background: #23aeee;
+    color: #FFF;
+}
+
+.color_box2{
+    background: #12ce9f;
+    color: #FFF;
+}
+
+.color_box3{
+    background: #FFB300;
+    color: #FFF;
+}
+
+.color_box4{
+    background: #FF5722;
+    color: #FFF;
+}
+
+.box1_title_clr1{ background: #1a7aa7; }
+.box1_title_clr2{ background: #0c8579; }
+.box1_title_clr3{ background: #9c7415; }
+.box1_title_clr4{ background: #c2441e; }
+
+.count_prescription{
+    width: auto;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: var(--shadowbox-1);
+    background-color: bisque;
+}
+
+.drug_prescription, .drug_dispensed{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.display_count_prescription{
+    width: 100%;
+    overflow: hidden;
+    padding: 0 10px;
+}
+
+
+.drug_prescription_chart{
+    width: 100%;
+    overflow: hidden;
+}
+
+/* drug_dispensed */
+
+/* drug_dispensed */
+
+/* fill history */
+.fill_days{
+    transition: 1.25;
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 10px;
+}
+
+.fill_drug{
+    padding: 0 10px;
+}
+
+.fill_drug li{
+    width: 100%;
+    list-style-type: none;
+    padding: 5px;
+}
+
+.fill_drug .fill_on_day{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+}
+
+.fill_drug .fill_day{
+    padding: 2px 10px;
+    border-bottom: solid 2px rgb(241, 73, 7);
+}
+
+.fill_drug .fill_day p{
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.fill_drug .fill_time{
+    display: flex;
+    padding: 0 10px;
+    gap: 10px;
+    padding-bottom: 5px;
+    border-bottom: solid 2px var(--green-500);
+}
+
+.fill_drug .fill_time button{
+    font-size: var(--font-size-xsm);
+    font-weight: 400;
+    background-color: var(--green-500);
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 2px 10px;
+    color:rgba(255, 255, 255, 1);
+}
+
+.fill_drug .fill_time button:hover{
+    background-color: var(--green-500);
+}
+
+/* detail drug in fill time table */
+/* -------------- table -------------- */
+.fill_drug table{
+    display: table;
+    border: none;
+    border-collapse: collapse;
+}
+
+.fill_drug tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.fill_drug tr:nth-child(even) {
+    background-color: var(--gray-100);
+}
+
+.fill_drug thead tr:nth-child(1){
+    border-bottom: 1px solid var(--green-400);
+}
+
+.fill_drug tr{
+    border-bottom: 1px solid var(--gray-500);
+}
+
+.fill_drug tr th{
+    font-size: var(--font-size-sm);
+    padding: 0 10px;
+}
+
+.fill_drug tr td{
+    font-size: var(--font-size-xsm);
+    padding: 3px 10px;
+}
+
+.fill_drug table .col_center{
+    vertical-align: middle;
+    text-align: center;
+}
+/* -------------- table -------------- */
+
+.fill_drug .fill_detail_time{
+    position: relative;
+}
+
+.fill_drug .show_select_time{
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: fit-content;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: solid 1px var(--green-500);
+}
+
+.fill_drug .show_fill_drug{
+    padding: 0 10px;
+    padding-bottom: 25px;
+}
+
+.fill_drug .show_select_time p,
+.fill_drug .show_select_time span{
+    font-size: var(--font-size-sm);
+    color: var(--green-500);
+    font-weight: 600;
+}
+
+.fill_drug .show_select_time p{
+    padding-top: 4px;
+    padding-left: 5px;
+}
+
+.fill_drug .enable_show_fill{
+    display: block;
+}
+
+.fill_drug .disable_show_fill{
+    display: none;
+}
+/* fill history */

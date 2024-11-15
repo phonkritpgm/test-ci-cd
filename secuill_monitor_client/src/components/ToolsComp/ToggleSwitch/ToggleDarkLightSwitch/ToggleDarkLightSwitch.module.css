@@ -1,0 +1,109 @@
+/* Dark light mod */
+.toggle_switch_d_l{
+  width: 100%;
+  height: 100%;
+}
+
+.toggle_switch_d_l > label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 50px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  
+}
+
+.toggle_switch_d_l > label:after {
+  content: "";
+  /* aspect-ratio = 1 / 1 || height = 50 -> width = height ? 50 px */
+  /* width: 50px; */
+  aspect-ratio : 1 / 1;
+  height: 90%;
+  position: absolute;
+  top: 5%;
+  left: 4%;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 50px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.toggle_switch_d_l > input {
+  position: absolute;
+  width: 50ox;
+  height: 50ox;
+  visibility: hidden;
+  border-radius: 50px;
+}
+
+.toggle_switch_d_l > input:checked + label {
+  background: #242424;
+}
+
+.toggle_switch_d_l > input:checked + label:after {
+  left: calc(100% - 4%);
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+.toggle_switch_d_l > label,
+.toggle_switch_d_l > label:after {
+  transition: 0.3s;  
+}
+
+.toggle_switch_d_l > label:active:after {
+  width: 50%;
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: -1;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.toggle_switch_d_l > input:checked + label + .background {
+  background: #242424;
+}
+
+.toggle_switch_d_l > label img{
+  position: absolute;
+  /* width: 100%; */
+  aspect-ratio : 1 / 1;
+  height: 80%;
+  z-index: 100;
+  top: 8%;
+}
+
+.toggle_switch_d_l > label img:nth-child(1){
+  left: 6%;
+  /* fill: #7e7e7e; */
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
+.toggle_switch_d_l > label img:nth-child(2) {
+  right: 5%;
+  /* fill: #fff; */
+  transition: 0.3s;
+}
+
+.toggle_switch_d_l > input:checked + label img:nth-child(1){
+  /* fill: #7e7e7e; */
+
+  /* filter soft color */
+  filter: brightness(1) invert(0);
+}
+.toggle_switch_d_l > input:checked + label img:nth-child(2){
+  /* fill: #fff; */
+
+  /* to white */
+  filter: brightness(0) invert(1);
+
+  /* or to blue */
+  /* filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg); */
+}

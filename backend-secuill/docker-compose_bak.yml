@@ -1,0 +1,41 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP.NET Core service.
+
+version: '3.4'
+
+networks:
+  backendsecuill:
+
+services:
+  sqlserver:
+    container_name: app-db 
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - 1401:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Thanes@1234#
+    networks:
+      - backendsecuill
+  backendsecuill:
+    image: backendsecuill
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - configuration=Debug
+    ports:
+      - 5113:5113
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - DB_HOST=app-db
+      - DB_NAME=SECUILL_V5_TU
+      - DB_SA_PASSWORD=Thanes@1234#
+      - DB_HOST_MIDDLE=app-db
+      - DB_NAME_MIDDLE=CONHIS_MIDDLE_V4_SIIP
+      - DB_SA_PASSWORD_MIDDLE=Thanes@1234#
+    networks:
+      - backendsecuill
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw

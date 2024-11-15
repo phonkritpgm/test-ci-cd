@@ -1,0 +1,29 @@
+.nm_textbox{
+    /* width: 200px; */
+    height: auto;
+    font-size: var(--tools-font-size);
+    background-color: var(--fools-font-color);
+	border: var(--tools-border);
+    border-color: var(--tools-border-color);
+	border-radius: var(--tools-border-radius);
+    padding: var(--tools-padding-scale);
+    color: inherit;
+}
+
+.nm_textbox::placeholder{
+    color: var(--primary-900);
+    opacity: 0.4;
+    /* text-decoration: underline; */
+}
+
+.nm_textbox:hover{
+    border: var(--tools-border);
+    border-color: var(--primary-400);
+}
+
+.nm_textbox:focus{
+    border: var(--tools-border);
+    outline: none !important;
+    border-color: var(--primary-400);
+}
+

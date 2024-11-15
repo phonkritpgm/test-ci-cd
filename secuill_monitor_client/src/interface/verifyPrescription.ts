@@ -1,0 +1,46 @@
+export interface IVerifyDataSecuillView {
+    VerifyStatus: string,
+    prescriptionDate: string,
+    PrescriptionNo: string,
+    HN: string,
+    PatientName: string,
+    DrugCode: string,
+    DrugName: string,
+    QTY: string,
+    UnitCode: string,
+    FrequencyUsage: string,
+    UsageNote: string,
+    CreateDT: string,
+    ToMachineID: string,
+}
+
+export interface IVerifyDataSecuillAPI {
+    f_tomachineno: string, 
+    f_prescriptionno: string, 
+    f_prescriptiondate:string,
+    f_hn: string, 
+    f_warddesc: string, 
+    f_orderitemcode:string,
+    f_orderitemname: string,
+    f_frequencydesc:string,
+    f_orderacceptdate:string,
+    f_orderqty:string,
+    f_orderunitcode:string,
+    f_patientname:string,
+    f_status:number,
+    f_offdate:string,
+    pres_disoenseddesc:string,
+    pres_dispensedstatus:string,
+    pres_status:string,
+    pres_statusdesc:string,
+    pres_runningno: string,
+    rowID:string,
+}
+
+export interface ICheckDrugVerify {
+    drugCode: string,
+    drugName: string,
+    stockDrugMachine: number,
+    sumaryDrugInPrescription: number,
+    prescriptionDrugLists: [],
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 24 24">
+    <g data-name="Double arrow up">
+        <circle cx="12" cy="12" r="10" 
+        style="fill:transparent"
+        />
+        <path d="M15 12a1 1 0 0 1-.707-.293L12 9.414l-2.293 2.293a1 1 0 0 1-1.414-1.414l3-3a1 1 0 0 1 1.414 0l3 3A1 1 0 0 1 15 12z" 
+        style="fill:#f09200"
+        />
+        <path d="M15 16a1 1 0 0 1-.707-.293L12 13.414l-2.293 2.293a1 1 0 0 1-1.414-1.414l3-3a1 1 0 0 1 1.414 0l3 3A1 1 0 0 1 15 16z" 
+        style="fill:#f09200"
+        />
+    </g>
+</svg>
