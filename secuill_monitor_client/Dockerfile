@@ -5,6 +5,8 @@ WORKDIR /app
 #COPY ./secuill_monitor_client/package*.json ./app
 ADD package*.json .
 
+RUN echo ls -la
+
 RUN npm install
 
 COPY . .
