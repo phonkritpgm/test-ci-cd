@@ -7,7 +7,9 @@ WORKDIR /usr/src/app
 #WORKDIR /app
 
 #COPY ./secuill_monitor_client/package*.json ./app
-COPY package*.json /usr/src/app
+COPY ./package*.json /usr/src/app
+
+run echo "Test" >> test.text
 
 RUN ls -la /usr/src/app
 RUN npm install
