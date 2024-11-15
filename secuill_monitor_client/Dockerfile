@@ -17,7 +17,7 @@ CMD ["npm","start"]
 
 RUN npm update
 
-COPY ./ /usr/src/app
+COPY ./secuill_monitor_client /usr/src/app
 
 RUN npm run build
 
