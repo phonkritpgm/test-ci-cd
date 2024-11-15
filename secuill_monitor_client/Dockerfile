@@ -2,7 +2,8 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-COPY ./secuill_monitor_client/package*.json ./app
+#COPY ./secuill_monitor_client/package*.json ./app
+ADD package*.json ./
 
 RUN npm install
 
