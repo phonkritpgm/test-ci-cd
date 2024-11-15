@@ -5,7 +5,7 @@ WORKDIR /app
 #COPY ./secuill_monitor_client/package*.json ./app
 ADD package*.json ./
 
-RUN ls -al
+RUN ls -la
 RUN npm install
 CMD ["npm","start"]
 
