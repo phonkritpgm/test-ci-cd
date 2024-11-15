@@ -1,6 +1,6 @@
 FROM node:18-alpine AS builder
 
-WORKDIR /app
+WORKDIR /
 
 #COPY ./secuill_monitor_client/package*.json ./app
 ADD package*.json ./
@@ -15,7 +15,7 @@ RUN npm run build
 
 FROM amd64/nginx:alpine
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /dist /usr/share/nginx/html
 
 #COPY nginx.conf /etc/nginx/conf.d/default.conf
 
