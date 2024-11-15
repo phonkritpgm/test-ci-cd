@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 WORKDIR /usr/src/app
 
-COPY ./backend-secuill.csproj ./usr/src/app
+COPY ./backend-secuill/backend-secuill.csproj /usr/src/app
 RUN dotnet restore
 
 COPY ./backend-secuill ./usr/src/app
