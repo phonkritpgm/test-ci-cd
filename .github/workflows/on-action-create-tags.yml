@@ -90,6 +90,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set output
+        id: vars
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+
       # Step 2: Log in to Docker Hub or another registry
       - name: Log in to Docker Registry
         uses: docker/login-action@v2
@@ -110,10 +114,10 @@ jobs:
       - name: Tag Docker Image as latest
         run: |
           echo "--DOCKER_HUB_USERNAME" + ${{ secrets.DOCKER_HUB_USERNAME }}
-          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:back-${{ steps.vars.outputs.tag }} ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:latest
+          docker tag ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:back-${{ steps.vars.outputs.tag }} ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:back-latest
 
       # Step 5: Push the Docker image to the registry
       - name: Push Docker Image
         run: |
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:back-${{ steps.vars.outputs.tag }}
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/testdocker:back-latest
