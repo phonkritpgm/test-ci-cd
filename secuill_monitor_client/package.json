@@ -12,7 +12,7 @@
   "dependencies": {
     "@canvasjs/react-charts": "^1.0.2",
     "@reduxjs/toolkit": "^2.2.5",
-    "axios": "^1.7.2",
+    "axios": "^1.13.5",
     "date-fns": "^3.6.0",
     "js-xlsx": "^0.8.22",
     "react": "^18.2.0",
