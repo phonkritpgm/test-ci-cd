@@ -4,4 +4,4 @@ ttttt
 [ date ] & [ time ]
 filter [ hn, prescription ]
 
-class verify
+class verify s
